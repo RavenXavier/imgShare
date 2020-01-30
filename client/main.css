@@ -2,3 +2,16 @@ body {
   padding: 10px;
   font-family: sans-serif;
 }
+
+.imgs{
+	width:100%;
+}
+
+.uniform{
+	height: 250px;
+	overflow: hidden;
+}
+
+.icolor{
+	color: purple;
+}

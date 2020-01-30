@@ -1,25 +1,26 @@
 <head>
-  <title>imgShare</title>
+	<title>Image Share Gallery</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
-
-  {{> hello}}
-  {{> info}}
+	<div class="container">
+		{{> myGallery}}
+	</div> <!-- container -->
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="myGallery">
+ 	<div class="row">
+ 		{{#each allImages}}
+			<div class="col-4 ">
+				<div class="uniform" >
+					<img class="imgs" src={{path}}  alt="">
+				</div>
+				<i class="fa fa-trash icolor"></i>
+				<h2>{{title}}</h2>
+				<h3>{{desc}}</h3>
+			</div>
+		{{/each}}
+	</div>
 </template>
 
-<template name="info">
-  <h2>Learn Meteor!</h2>
-  <ul>
-    <li><a href="https://www.meteor.com/try" target="_blank">Do the Tutorial</a></li>
-    <li><a href="http://guide.meteor.com" target="_blank">Follow the Guide</a></li>
-    <li><a href="https://docs.meteor.com" target="_blank">Read the Docs</a></li>
-    <li><a href="https://forums.meteor.com" target="_blank">Discussions</a></li>
-  </ul>
-</template>
+
+

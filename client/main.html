@@ -4,6 +4,7 @@
 
 <body>
 	<div class="container">
+
 		<h1 class="display-4">Welcome to Image Share Gallery</h1>
 		{{> addImage}}
 		{{> myGallery}}
@@ -46,7 +47,12 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
-	        ...
+					 <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">Path</span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="paste image path here" aria-label="Username" aria-describedby="basic-addon1">
+					</div>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

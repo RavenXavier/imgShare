@@ -28,6 +28,31 @@ Template.myGallery.events({
   	$("#"+this._id).fadeOut('slow',function(){
   	imagesdb.remove({_id:myId});
   	});
-  	
+  
   },
+
+});
+
+Template.addImage.events({
+	'click .js-addMe'(event, instance){
+		console.log("adding image...");
+	},
+	'click .js-closeMe'(event, instance){
+		console.log("closing...")
+	}, 
+	'click .js-saveMe'(event, instance){
+		var myTitle = $("#imgTitle").val();
+		var myPath = $("#imgPath").val();
+		var myDesc = $("#imgDesc").val();
+		// console.log("Saving Image with title: "+myTitle);
+		imagesdb.insert({
+			"title": myTitle,
+			"path": myPath,
+			"desc": myDesc
+ 		});
+ 		console.log("saving...");
+ 		$("#addimageModal").modal("hide");
+	},
+
+
 });

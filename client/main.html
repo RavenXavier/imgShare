@@ -4,8 +4,9 @@
 
 <body>
 	<div class="container">
-
-		<h1 class="display-4">Welcome to Image Share Gallery</h1>
+		<div class="col justify-content-">
+		<h1 class="display-4 ">Welcome to Image Share Gallery</h1>
+		</div>
 		{{> addImage}}
 		{{> myGallery}}
 	
@@ -30,18 +31,18 @@
 	<div class="row mb-5 justify-content-around ">
 		<div class="col-3">
 				<!-- Button trigger modal -->
-		<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+		<button type="button" class="btn btn-primary js-addMe" data-toggle="modal" data-target="#addimageModal">
 		  Add an Image
 		</button>
 		</div>
 	</div>
 	
 	<!-- Modal -->
-	<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	<div class="modal fade" id="addimageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  <div class="modal-dialog" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+	        <h5 class="modal-title" id="exampleModalLabel">Add Image</h5>
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 	          <span aria-hidden="true">&times;</span>
 	        </button>
@@ -49,14 +50,27 @@
 	      <div class="modal-body">
 					 <div class="input-group mb-3">
 					  <div class="input-group-prepend">
-					    <span class="input-group-text" id="basic-addon1">Path</span>
+					    <span class="input-group-text" id="basic-addon1">Title</span>
 					  </div>
-					  <input type="text" class="form-control" placeholder="paste image path here" aria-label="Username" aria-describedby="basic-addon1">
+					  <input type="text" class="form-control" id="imgTitle" placeholder="Give your image a title" aria-label="Username" aria-describedby="basic-addon1">
+					</div> <!-- title -->
+					<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">Path</span>
+						</div>
+						<input type="text" class="form-control" id=imgPath placeholder="paste image path here" aria-label="Username" aria-describedby="basic-addon1">
+					</div> <!-- path -->
+
+					<div class="input-group">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text">Description</span>
+					  </div>
+					  <textarea class="form-control" id="imgDesc" aria-label="With textarea"></textarea>
 					</div>
-	      </div>
+				</div> <!-- modal body -->
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-	        <button type="button" class="btn btn-primary">Save changes</button>
+	        <button type="button" class="btn btn-secondary js-closeMe" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary js-saveMe">Save changes</button>
 	      </div>
 	    </div>
 	  </div>

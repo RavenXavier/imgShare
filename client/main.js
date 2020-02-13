@@ -52,6 +52,9 @@ Template.addImage.events({
  		});
  		console.log("saving...");
  		$("#addimageModal").modal("hide");
+ 		var myTitle = $("#imgTitle").val("");
+		var myPath = $("#imgPath").val("");
+		var myDesc = $("#imgDesc").val("");
 	},
 
 

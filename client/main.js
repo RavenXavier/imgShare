@@ -28,9 +28,19 @@ Template.myGallery.events({
   	$("#"+this._id).fadeOut('slow',function(){
   	imagesdb.remove({_id:myId});
   	});
-  
   },
-
+ 'click .js-edit'(event, instance){
+  $("#editimageModal").modal("show");
+  	var myId = this._id;
+  	var edTitle = imagesdb.findOne({_id:myId}).title;
+  	var edPath = imagesdb.findOne({_id:myId}).path;
+  	var edDesc = imagesdb.findOne({_id:myId}).desc;
+  	$("#editId").val(myId);
+  	$("#editTitle").val(edTitle);
+  	$("#editPath").val(edPath);
+  	$("#editDesc").val(edDesc);
+  	$(".editHolder").attr("src", edPath);
+ 	},
 });
 
 Template.addImage.events({
@@ -38,13 +48,16 @@ Template.addImage.events({
 		console.log("adding image...");
 	},
 	'click .js-closeMe'(event, instance){
-		console.log("closing...")
+		// console.log("closing...")
+		var myTitle = $("#imgTitle").val("");
+		var myPath = $("#imgPath").val("");
+		var myDesc = $("#imgDesc").val("");
+		//$(".placeHolder").attr("src",$("#imgPath").val())
 	}, 
 	'click .js-saveMe'(event, instance){
 		var myTitle = $("#imgTitle").val();
 		var myPath = $("#imgPath").val();
 		var myDesc = $("#imgDesc").val();
-		// console.log("Saving Image with title: "+myTitle);
 		imagesdb.insert({
 			"title": myTitle,
 			"path": myPath,
@@ -56,6 +69,26 @@ Template.addImage.events({
 		var myPath = $("#imgPath").val("");
 		var myDesc = $("#imgDesc").val("");
 	},
+		'input #imgPath'(event, instance){
+			$(".placeHolder").attr("src",$("#imgPath").val())
+			console.log($("#imgPath").val());
 
+		},
+});
 
+Template.editImage.events({
+	'click js-updateMe'(event, instance){
+		var newTitle = $("#editTitle").val();
+		var newPath = $("#editPath").val();
+		var newDesc = $("#editDesc").val();
+		var updateId = $("#editId").val();
+		//console.log("id "+updateId+ "title "+newTitle+ "path "+newPath+ "decri "+newDesc);
+		imagesdb.update({_id: updateId},
+				{$set:{
+					"title": newTitle,
+					"path": newPath,
+					"desc": newDesc
+				}}
+			);
+		},
 });

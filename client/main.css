@@ -11,8 +11,18 @@ body {
 	height: 250px;
 	overflow: hidden;
 }
-
-.icolor{
-	color: purple;
+.dcolor, .ecolor{
 	font-size: 2em;
+	cursor:pointer;
+}
+.dcolor{
+	color: purple;
+}
+.ecolor2{
+	color:gray;
+}
+.placeHolder{
+	margin-bottom:10px;
+	width:350px;
+	height:250px;
 }

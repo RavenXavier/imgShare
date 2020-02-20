@@ -4,10 +4,11 @@
 
 <body>
 	<div class="container">
-		<div class="col justify-content-">
+		<div class="col">
 		<h1 class="display-4 ">Welcome to Image Share Gallery</h1>
 		</div>
 		{{> addImage}}
+		{{> editImage}}
 		{{> myGallery}}
 	
 
@@ -20,13 +21,14 @@
 				<div class="uniform" >
 					<img class="imgs" src={{path}}  alt="">
 				</div>
-				<i class="fa fa-trash icolor js-delete"></i>
+				<i class="fa fa-pencil ecolor js-edit"></i>
+				<i class="fa fa-trash dcolor js-delete"></i>
 				<h2>{{title}}</h2>
 				<h3>{{desc}}</h3>
 			</div>
 		{{/each}}
 	</div>
-</template>
+</template> <!-- myGallery -->
 <template name="addImage">
 	<div class="row mb-5 justify-content-around ">
 		<div class="col-3">
@@ -48,6 +50,7 @@
 	        </button>
 	      </div>
 	      <div class="modal-body">
+	      	<img class="placeHolder" src="placeholder.png" alt="">
 					 <div class="input-group mb-3">
 					  <div class="input-group-prepend">
 					    <span class="input-group-text" id="basic-addon1">Title</span>
@@ -71,11 +74,52 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary js-closeMe" data-dismiss="modal">Close</button>
 	        <button type="button" class="btn btn-primary js-saveMe">Save changes</button>
+	      </div> <!-- modal footer -->
+	    </div> <!-- modal content -->
+	  </div> <!-- modal dialog -->
+	</div> <!-- modal end -->
+</template> <!-- addImage -->
+<template name="editImage">	
+	<!-- Modal -->
+	<div class="modal fade" id="editimageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Add Image</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
 	      </div>
-	    </div>
-	  </div>
-	</div>
-</template>
+	      <div class="modal-body">
+	      	<img class="editHolder placeHolder" src="placeholder.png" alt="">
+					 <div class="input-group mb-3">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text" id="basic-addon1">Title</span>
+					  </div>
+					  <input type="text" class="form-control" id="editTitle" placeholder="Give your image a title" aria-label="Username" aria-describedby="basic-addon1">
+					</div> <!-- title -->
+					<div class="input-group mb-3">
+					 <div class="input-group-prepend">
+							<span class="input-group-text" id="basic-addon1">Path</span>
+						</div>
+						<input type="text" class="form-control" id=editPath placeholder="paste image path here" aria-label="Username" aria-describedby="basic-addon1">
+					</div> <!-- path -->
 
+					<div class="input-group">
+					  <div class="input-group-prepend">
+					    <span class="input-group-text">Description</span>
+					  </div>
+					  <textarea class="form-control" id="editDesc" aria-label="With textarea"></textarea>
+					</div>
+					<input id="editId" type="text">
+				</div> <!-- modal body -->
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-secondary js-closeMe" data-dismiss="modal">Close</button>
+	        <button type="button" class="btn btn-primary js-updateMe">Save changes</button>
+	      </div> <!-- modal footer -->
+	    </div> <!-- modal content -->
+	  </div> <!-- modal dialog -->
+	</div> <!-- modal end -->
+</template> <!-- editImage -->
 
 

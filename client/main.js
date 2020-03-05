@@ -25,9 +25,8 @@ Template.myGallery.events({
   	// console.log("deleteing...");
   	// console.log(this._id);
   	var myId = this._id;
-  	$("#"+this._id).fadeOut('slow',function(){
-  	imagesdb.remove({_id:myId});
-  	});
+  	$('#deleteId').val(myId)
+  	$('#confirmModal').modal('show')
   },
  'click .js-edit'(event, instance){
   $("#editimageModal").modal("show");
@@ -40,6 +39,12 @@ Template.myGallery.events({
   	$("#editPath").val(edPath);
   	$("#editDesc").val(edDesc);
   	$(".editHolder").attr("src", edPath);
+ 	},
+ 	'click .js-confirm'(event, instance){
+ 		var myId = $("#deleteId").val();
+ 		$("#"+myId).fadeOut('slow',function(){
+  	imagesdb.remove({_id:myId});
+  	});
  	},
 });
 
@@ -77,7 +82,7 @@ Template.addImage.events({
 });
 
 Template.editImage.events({
-	'click js-updateMe'(event, instance){
+	'click .js-updateMe'(event, instance){
 		var newTitle = $("#editTitle").val();
 		var newPath = $("#editPath").val();
 		var newDesc = $("#editDesc").val();
@@ -90,5 +95,10 @@ Template.editImage.events({
 					"desc": newDesc
 				}}
 			);
+		$("#editimageModal").modal("hide");
 		},
+		'input .editPath'(event, instance){
+			$(".placeHolder").attr("src",$("#editPath").val())
+			console.log($("#editPath").val());
+		}	
 });

@@ -5,7 +5,12 @@
 <body>
 	<div class="container">
 		<div class="col">
-		<h1 class="display-4 ">Welcome to Image Share Gallery</h1>
+			<div class="row justify-content-around">
+				<div class="col content-center">
+					<h1 class="display-4 ">Welcome to Image Share Gallery</h1>
+				</div>
+			</div>
+		
 		</div>
 		{{> addImage}}
 		{{> editImage}}
@@ -27,6 +32,23 @@
 				<h3>{{desc}}</h3>
 			</div>
 		{{/each}}
+		<!-- ====================================== -->
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Are really really sure you wanna delete this?</h5>
+      </div>
+      <div class="modal-footer">
+      	<input id="deleteId" type="hidden">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+        <button type="button" class="btn btn-primary js-confirm" data-dismiss="modal">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+		<!-- ====================================== -->
 	</div>
 </template> <!-- myGallery -->
 <template name="addImage">
@@ -111,7 +133,7 @@
 					  </div>
 					  <textarea class="form-control" id="editDesc" aria-label="With textarea"></textarea>
 					</div>
-					<input id="editId" type="text">
+					<input id="editId" type="hidden">
 				</div> <!-- modal body -->
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-secondary js-closeMe" data-dismiss="modal">Close</button>

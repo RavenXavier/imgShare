@@ -16,7 +16,15 @@ import '../lib/collection.js';
 
 Template.myGallery.helpers({
 	allImages() {
-		return imagesdb.find();
+		//get time 15 seconds
+		var prevTime = new Date().getTime() - 15000;
+		var results = imagesdb.find({createdOn: {$gte: prevTime}}).count();
+		if (results > 0){
+			return imagesdb.find({}, {sort:{createdOn: -1, ratings: -1}});
+		}
+		else{
+			return imagesdb.find({}, {sort:{ratings: -1, createdOn: -1}});
+		}
 	},
 });
 
@@ -46,6 +54,16 @@ Template.myGallery.events({
   	imagesdb.remove({_id:myId});
   	});
  	},
+ 	"click .rating"(event) {
+        const value = $(event.target).val();
+        var myId = this.picId;
+        console.log(myId + ":" + value);
+        imagesdb.update({_id: myId},
+				{$set:{
+					"ratings":value
+				}}
+			);
+    },
 });
 
 Template.addImage.events({
@@ -66,7 +84,8 @@ Template.addImage.events({
 		imagesdb.insert({
 			"title": myTitle,
 			"path": myPath,
-			"desc": myDesc
+			"desc": myDesc,
+			"createdOn":  new Date().getTime()
  		});
  		console.log("saving...");
  		$("#addimageModal").modal("hide");

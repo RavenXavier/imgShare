@@ -11,7 +11,7 @@ Meteor.startup(() => {
 				"path":"img_"+i+".jpg",
 				"title":"title"+i,
 				"desc":"description"+i,
-				"createdOn":new Date().getTime()
+				"createdOn": new Date().getTime()
 			});
 		}
 	}

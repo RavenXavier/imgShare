@@ -10,12 +10,20 @@
 					<h1 class="display-4 ">Welcome to Image Share Gallery</h1>
 				</div>
 			</div>
-		
 		</div>
-		{{> addImage}}
-		{{> editImage}}
+		<div class="row my-5 justify-content-around">
+			<div class="col-4 text-center">
+				<div class="btn btn-primary">
+				{{> loginButtons}}
+				</div>
+			</div>
+		</div>
+		{{#if currentUser}}
+			{{> addImage}}
+			{{> editImage}}
+		{{/if}}
 		{{> myGallery}}
-	
+		
 
 	</div> <!-- container -->
 </body>
@@ -26,10 +34,15 @@
 				<div class="uniform" >
 					<img class="imgs" src={{path}}  alt="">
 				</div>
+				{{#if currentUser}}
 				<i class="fa fa-pencil ecolor js-edit"></i>
 				<i class="fa fa-trash dcolor js-delete"></i>
+				{{/if}}
 				<h2>{{title}}</h2>
 				<h3>{{desc}}</h3>
+				{{#if userField}}
+					<h4>by {{createdBy}}</h4>
+				{{/if}}
 				{{> rating value=ratings picId=_id}}
 			</div>
 		{{/each}}
@@ -54,7 +67,7 @@
 </template> <!-- myGallery -->
 <template name="addImage">
 	<div class="row mb-5 justify-content-around ">
-		<div class="col-3">
+		<div class="col-3 text-center">
 				<!-- Button trigger modal -->
 		<button type="button" class="btn btn-primary js-addMe" data-toggle="modal" data-target="#addimageModal">
 		  Add an Image

@@ -45,6 +45,14 @@ Template.myGallery.helpers({
 			return imagesdb.find({}, {sort:{ratings: -1, createdOn: -1}, limit: Session.get("imageLimit")});
 		}
 	},
+	userField(){//ceck to see if image has a saved user
+		if (!(this.createdBy == undefined)){
+			return true;
+		}
+		else{
+			return false;
+		}
+	}
 });
 
 Template.myGallery.events({
@@ -104,7 +112,8 @@ Template.addImage.events({
 			"title": myTitle,
 			"path": myPath,
 			"desc": myDesc,
-			"createdOn":  new Date().getTime()
+			"createdOn":  new Date().getTime(),
+			"createdBy": Meteor.users.findOne({_id:Meteor.userId()}).emails[0].address
  		});
  		console.log("saving...");
  		$("#addimageModal").modal("hide");

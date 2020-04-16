@@ -2,11 +2,21 @@ body {
   padding: 10px;
   font-family: sans-serif;
 }
-
+.bkgrndImg{
+	background: url('lui-peng-eHytul-4rmo-unsplash.jpg');
+	background-size: fixed;
+}
+.bkImg{
+	background: #ffffff44; /*rgba*/
+}
 .imgs{
 	width:100%;
+	transition: .3s linear;
+	cursor: pointer;
 }
-
+.imgs:hover{
+	transform: scale(1.1);
+}
 .uniform{
 	height: 250px;
 	overflow: hidden;
@@ -27,6 +37,9 @@ body {
 	height:250px;
 }
 
-#login-buttons a{
-	text-decoration: none;
+#login-dropdown-list{
+	list-style: none;
+}
+.rating > label{
+	cursor: pointer;
 }

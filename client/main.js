@@ -10,10 +10,9 @@ global.Popper = popper // fixes some issues with Popper and Meteor
 import './main.html';
 import '../lib/collection.js';
 
-// Template.picture.onCreated(function pictureOnCreated() {
-//   // counter starts at 0
-//   this.counter = new ReactiveVar(0);
-// });
+Meteor.subscribe('imgGallery');
+
+import '../lib/accounts-ui.js';
 
 Session.set("imageLimit", 9);
 lastScrollTop = 0;
@@ -113,7 +112,8 @@ Template.addImage.events({
 			"path": myPath,
 			"desc": myDesc,
 			"createdOn":  new Date().getTime(),
-			"createdBy": Meteor.users.findOne({_id:Meteor.userId()}).emails[0].address
+			"createdBy": Meteor.users.findOne({_id:Meteor.userId()}).username,
+ 			"createdById": Meteor.userId()
  		});
  		console.log("saving...");
  		$("#addimageModal").modal("hide");

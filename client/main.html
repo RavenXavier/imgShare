@@ -2,11 +2,11 @@
 	<title>Image Share Gallery</title>
 </head>
 
-<body>
-	<div class="container">
+<body class="bkgrndImg">
+	<div class="container bkImg ">
 		<div class="col">
 			<div class="row justify-content-around">
-				<div class="col content-center">
+				<div class="col text-center">
 					<h1 class="display-4 ">Welcome to Image Share Gallery</h1>
 				</div>
 			</div>
@@ -39,29 +39,29 @@
 				<i class="fa fa-trash dcolor js-delete"></i>
 				{{/if}}
 				<h2>{{title}}</h2>
-				<h3>{{desc}}</h3>
+				<h4>{{desc}}</h4>
 				{{#if userField}}
-					<h4>by {{createdBy}}</h4>
+					<h6>by {{createdBy}}</h6>
 				{{/if}}
 				{{> rating value=ratings picId=_id}}
 			</div>
 		{{/each}}
 		<!-- ====================================== -->
-<!-- Modal -->
-<div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Are really really sure you wanna delete this?</h5>
-      </div>
-      <div class="modal-footer">
-      	<input id="deleteId" type="hidden">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-        <button type="button" class="btn btn-primary js-confirm" data-dismiss="modal">Yes</button>
-      </div>
-    </div>
-  </div>
-</div>
+			<!-- Modal -->
+			<div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="staticBackdropLabel">Are really really sure you wanna delete this?</h5>
+			      </div>
+			      <div class="modal-footer">
+			      	<input id="deleteId" type="hidden">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+			        <button type="button" class="btn btn-primary js-confirm" data-dismiss="modal">Yes</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
 		<!-- ====================================== -->
 	</div>
 </template> <!-- myGallery -->

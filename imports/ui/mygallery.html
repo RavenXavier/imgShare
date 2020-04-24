@@ -1,0 +1,38 @@
+<template name="myGallery">
+ 	<div class="row">
+ 		{{#each allImages}}
+			<div class="col-4" id={{_id}}>
+				<div class="uniform" >
+					<img class="imgs" src={{path}}  alt="">
+				</div>
+				{{#if currentUser}}
+				<i class="fa fa-pencil ecolor js-edit"></i>
+				<i class="fa fa-trash dcolor js-delete"></i>
+				{{/if}}
+				<h2>{{title}}</h2>
+				<h4>{{desc}}</h4>
+				{{#if userField}}
+					<h6>by {{createdBy}}</h6>
+				{{/if}}
+				{{> rating value=ratings picId=_id}}
+			</div>
+		{{/each}}
+		<!-- ====================================== -->
+			<!-- Modal -->
+			<div class="modal fade" id="confirmModal" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <h5 class="modal-title" id="staticBackdropLabel">Are really really sure you wanna delete this?</h5>
+			      </div>
+			      <div class="modal-footer">
+			      	<input id="deleteId" type="hidden">
+			        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+			        <button type="button" class="btn btn-primary js-confirm" data-dismiss="modal">Yes</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+		<!-- ====================================== -->
+	</div>
+</template> <!-- myGallery -->

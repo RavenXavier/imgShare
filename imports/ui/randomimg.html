@@ -1,0 +1,17 @@
+<template name="randomImg">
+	<div class="row mt-3 justify-content-around">
+		{{#with randImg}}
+			<div class="col-4">
+				<div class="uniform" >
+					<img class="imgs" src={{path}} alt="">
+				</div>
+				<h2>{{title}}</h2>
+				<h4>{{desc}}</h4>
+				{{#if userField}}
+					<h6>by {{createdBy}}</h6>
+				{{/if}}
+				{{> rating value=ratings disabled=true}}
+			</div>
+			{{/ with}}
+		</div>
+</template>

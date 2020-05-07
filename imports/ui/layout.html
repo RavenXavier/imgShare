@@ -1,23 +1,9 @@
 <body class="bkgrndImg">
-	<div class="container bkImg ">
-		<div class="col">
-			<div class="row justify-content-around">
-				<div class="col text-center">
-					<h1 class="display-4 ">Welcome to Image Share Gallery</h1>
-				</div>
-			</div>
-		</div>
-		<div class="row my-5 justify-content-around">
-			<div class="col-4 text-center">
-				<div class="btn btn-primary">
-				{{> loginButtons}}
-				</div>
-			</div>
-		</div>
-		{{#if currentUser}}
-			{{> addImage}}
-			{{> editImage}}
-		{{/if}}
-		{{> myGallery}}
+	<div class="container bkImg ">		
 	</div> <!-- container -->
 </body>
+<template name="pageLayout">
+  {{> Template.dynamic template=header}}
+  {{> Template.dynamic template=mainBody}}
+  {{> Template.dynamic template=footer}}
+</template>

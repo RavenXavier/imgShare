@@ -26,3 +26,5 @@ session@1.2.0
 accounts-password@1.6.0
 msavin:mongol
 chuikoff:accounts-ui-bootstrap-4
+ostrio:flow-router-extra
+kadira:blaze-layout

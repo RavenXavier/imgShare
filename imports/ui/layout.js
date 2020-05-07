@@ -12,6 +12,9 @@ import './layout.html';
 import './mygallery.html';
 import './addimage.html';
 import './editimage.html';
+import './navbar.html';
+import './banner.html';
+import './randomimg.html';
 
 //api imports
 import '../../lib/collection.js';
@@ -20,3 +23,5 @@ import '../api/infinitescroll.js';
 import '../api/mygallery.js';
 import '../api/addimage.js';
 import '../api/editimage.js';
+import '../api/router.js';
+import '../api/randomimg.js';

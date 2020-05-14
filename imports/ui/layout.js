@@ -15,6 +15,10 @@ import './editimage.html';
 import './navbar.html';
 import './banner.html';
 import './randomimg.html';
+import './error404.html';
+import './viewimage.html';
+import './about.html';
+import './login.html';
 
 //api imports
 import '../../lib/collection.js';
@@ -25,3 +29,4 @@ import '../api/addimage.js';
 import '../api/editimage.js';
 import '../api/router.js';
 import '../api/randomimg.js';
+import '../api/viewimage.js';

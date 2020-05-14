@@ -21,6 +21,9 @@ body {
 	height: 250px;
 	overflow: hidden;
 }
+.uniform2 img{
+	width:100%;
+}
 .dcolor, .ecolor{
 	font-size: 2em;
 	cursor:pointer;
@@ -48,4 +51,10 @@ body {
 	max-height: 250px;
 	margin: 0 auto;
 	overflow: hidden;
+}
+#e404Pic{
+	border-radius: 10%;
+}
+.loginPic{
+	height: 250px;
 }

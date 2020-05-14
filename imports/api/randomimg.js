@@ -1,15 +1,21 @@
 import { Random } from 'meteor/random';
 
-// Meteor.methods({
-// 	uniqueNumber(){
-// 		var n;
-// 		n = Math.floor(Random.fraction(*imagesdb.find().count()));
-// 		console.log("random: " + n);
-// 		return n;
-// 	}
-// })
+	uniqueNumber = function(){
+		var n = Math.floor(Random.fraction()*imagesdb.find().count());
+		return n;
+	}
+
 Template.randomImg.helpers({
 	randImg(){
-		return imagesdb.findOne();
+		console.log(uniqueNumber());
+		return imagesdb.find().fetch()[uniqueNumber()];
+	},
+	userField(){//ceck to see if image has a saved user
+		if (!(this.createdBy == undefined)){
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 });

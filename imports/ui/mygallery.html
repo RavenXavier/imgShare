@@ -1,9 +1,11 @@
 <template name="myGallery">
- 	<div class="row">
+ 	<div class="row mt-3">
  		{{#each allImages}}
 			<div class="col-4" id={{_id}}>
 				<div class="uniform" >
+					<a href="/gallery/{{_id}}">
 					<img class="imgs" src={{path}}  alt="">
+					</a>
 				</div>
 				{{#if currentUser}}
 				<i class="fa fa-pencil ecolor js-edit"></i>
